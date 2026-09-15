@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Neural Chat — an AI chat application powered by NVIDIA NIM.">
+  <title>Neural Chat | NVIDIA AI</title>
+
+  <!-- Relative paths work on GitHub Pages project sites -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">N</div>
+        <span>Neural Chat</span>
+        <button
+          id="closeSidebar"
+          class="icon-btn mobile-only"
+          type="button"
+          aria-label="Close sidebar"
+        >×</button>
+      </div>
+
+      <button id="newChat" class="new-chat" type="button">
+        <span aria-hidden="true">＋</span> New chat
+      </button>
+
+      <div class="side-label">RECENT</div>
+      <div id="history" class="history"></div>
+
+      <div class="sidebar-bottom">
+        <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+        <span id="statusText" role="status">Checking API…</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button
+          id="openSidebar"
+          class="icon-btn mobile-only"
+          type="button"
+          aria-label="Open sidebar"
+        >☰</button>
+
+        <div class="model-name">
+          NVIDIA NIM <span class="chevron" aria-hidden="true">⌄</span>
+        </div>
+
+        <button
+          id="clearChat"
+          class="icon-btn"
+          type="button"
+          title="Clear current chat"
+          aria-label="Clear chat"
+        >↻</button>
+      </header>
+
+      <section id="welcome" class="welcome">
+        <div class="welcome-orb" aria-hidden="true">✦</div>
+        <h1>What can I help you with?</h1>
+        <p>Ask a question, explore an idea, or work through a problem.</p>
+
+        <div class="suggestions">
+          <button
+            class="suggestion"
+            type="button"
+            data-prompt="Explain a difficult concept in simple terms."
+          >
+            <b aria-hidden="true">◈</b>
+            <span>
+              Explain a concept
+              <small>Make something complex feel simple</small>
+            </span>
+          </button>
+
+          <button
+            class="suggestion"
+            type="button"
+            data-prompt="Help me debug this code. Ask me to paste it if needed."
+          >
+            <b aria-hidden="true">⌘</b>
+            <span>
+              Debug code
+              <small>Find and fix a tricky bug</small>
+            </span>
+          </button>
+
+          <button
+            class="suggestion"
+            type="button"
+            data-prompt="Help me create a practical step-by-step plan for learning a new skill."
+          >
+            <b aria-hidden="true">↗</b>
+            <span>
+              Make a plan
+              <small>Turn a goal into clear steps</small>
+            </span>
+          </button>
+
+          <button
+            class="suggestion"
+            type="button"
+            data-prompt="Give me three creative ideas for a project, with pros and cons."
+          >
+            <b aria-hidden="true">✧</b>
+            <span>
+              Brainstorm ideas
+              <small>Explore a few fresh directions</small>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="messages"
+        class="messages"
+        aria-live="polite"
+        aria-label="Chat messages"
+      ></section>
+
+      <div class="composer-wrap">
+        <form id="chatForm" class="composer">
+          <textarea
+            id="prompt"
+            rows="1"
+            placeholder="Message NVIDIA AI…"
+            aria-label="Message"
+            maxlength="20000"
+          ></textarea>
+
+          <div class="composer-bottom">
+            <span class="hint">Enter to send · Shift + Enter for a new line</span>
+            <button
+              id="sendBtn"
+              class="send-btn"
+              type="submit"
+              aria-label="Send message"
+            >↑</button>
+          </div>
+        </form>
+
+        <p class="disclaimer">
+          AI can make mistakes. Verify important information.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Keep app.js in the same folder as this HTML file -->
+  <script src="./app.js"></script>
+</body>
+</html>
